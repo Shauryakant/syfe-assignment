@@ -33,5 +33,8 @@ public class CategoryDto {
     @JsonProperty("isCustom")
     public Boolean getIsCustom() { return isCustom; }
 
+    @JsonProperty("custom")
+    public Boolean getCustom() { return isCustom; }
+
     public void setIsCustom(Boolean isCustom) { this.isCustom = isCustom; }
 }

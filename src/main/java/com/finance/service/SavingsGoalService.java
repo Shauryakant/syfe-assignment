@@ -149,11 +149,11 @@ public class SavingsGoalService {
         }
 
         BigDecimal netSavings = totalIncome.subtract(totalExpenses);
-        BigDecimal currentProgress = netSavings.compareTo(BigDecimal.ZERO) < 0 ? BigDecimal.ZERO.setScale(2) : netSavings.setScale(2, RoundingMode.HALF_UP);
+        BigDecimal currentProgress = netSavings.compareTo(BigDecimal.ZERO) <= 0 ? BigDecimal.ZERO : netSavings.setScale(2, RoundingMode.HALF_UP);
 
         BigDecimal remainingAmount = goal.getTargetAmount().subtract(currentProgress);
-        if (remainingAmount.compareTo(BigDecimal.ZERO) < 0) {
-            remainingAmount = BigDecimal.ZERO.setScale(2);
+        if (remainingAmount.compareTo(BigDecimal.ZERO) <= 0) {
+            remainingAmount = BigDecimal.ZERO;
         } else {
             remainingAmount = remainingAmount.setScale(2, RoundingMode.HALF_UP);
         }
